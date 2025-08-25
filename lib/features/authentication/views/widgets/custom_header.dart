@@ -13,17 +13,16 @@ class CustomHeader extends StatelessWidget {
       children: [
         Spacer(),
         SvgPicture.asset(Assets.backIconArrow),
-        Spacer(),
-        Expanded(
-          child: Text(
-            textAlign: TextAlign.center,
-            title,
-            style: AppStyles.leagueSpartanBold28(
-              context,
-            ).copyWith(color: Colors.white),
-          ),
-        ),
         Spacer(flex: 2),
+        Text(
+          maxLines: 1,
+          textAlign: TextAlign.center,
+          title,
+          style: AppStyles.leagueSpartanBold28(
+            context,
+          ).copyWith(color: Colors.white),
+        ),
+        Spacer(flex: 3),
       ],
     );
   }
