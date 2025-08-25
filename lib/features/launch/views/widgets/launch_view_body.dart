@@ -42,11 +42,9 @@ class _LaunchViewBodyState extends State<LaunchViewBody> {
                 aspectRatio: 207 / 45,
                 child: CustomButton(
                   text: 'Log In',
-                  color: isActive ? Color(0xFFF3E9B5) : kPrimaryColor,
+                  color: kPrimaryColor,
                   onPressed: () {
-                    setState(() {
-                      isActive = true;
-                    });
+                    Navigator.pushNamed(context, kLogInViewRoute);
                   },
                 ),
               ),
@@ -55,12 +53,8 @@ class _LaunchViewBodyState extends State<LaunchViewBody> {
                 aspectRatio: 207 / 45,
                 child: CustomButton(
                   text: 'Sign Up',
-                  color: isActive ? kPrimaryColor : Color(0xFFF3E9B5),
-                  onPressed: () {
-                    setState(() {
-                      isActive = true;
-                    });
-                  },
+                  color: Color(0xFFF3E9B5),
+                  onPressed: () {},
                 ),
               ),
             ],
