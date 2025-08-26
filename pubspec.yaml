@@ -78,6 +78,7 @@ flutter:
     - family: LeagueSpartan
       fonts:
         - asset: assets/fonts/LeagueSpartan-Regular.ttf
+        - asset: assets/fonts/LeagueSpartan-Medium.ttf
     - family: Poppins
       fonts:
         - asset: assets/fonts/Poppins-Regular.ttf
