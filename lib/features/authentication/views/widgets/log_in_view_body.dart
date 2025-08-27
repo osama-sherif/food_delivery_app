@@ -10,19 +10,21 @@ class LogInViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const SizedBox(height: 76),
-        const CustomHeader(title: 'Log In'),
-        const SizedBox(height: 59),
-        CustomBackGroundContainer(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 34),
-            child: LogInForm(),
+    return SafeArea(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SizedBox(height: 44),
+          const CustomHeader(title: 'Log In'),
+          const SizedBox(height: 55),
+          CustomBackGroundContainer(
+            child: Padding(
+              padding: const EdgeInsets.only(right: 36, left: 36, top: 34),
+              child: LogInForm(),
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

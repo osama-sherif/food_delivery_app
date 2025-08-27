@@ -41,20 +41,30 @@ class _LaunchViewBodyState extends State<LaunchViewBody> {
               AspectRatio(
                 aspectRatio: 207 / 45,
                 child: CustomButton(
-                  text: 'Log In',
                   color: kPrimaryColor,
                   onPressed: () {
                     Navigator.pushNamed(context, kLogInViewRoute);
                   },
+                  child: Text(
+                    'Log In',
+                    style: AppStyles.leagueSpartanMedium24(
+                      context,
+                    ).copyWith(color: kSecondaryColor),
+                  ),
                 ),
               ),
               SizedBox(height: 4),
               AspectRatio(
                 aspectRatio: 207 / 45,
                 child: CustomButton(
-                  text: 'Sign Up',
                   color: Color(0xFFF3E9B5),
                   onPressed: () {},
+                  child: Text(
+                    'Sign Up',
+                    style: AppStyles.leagueSpartanMedium24(
+                      context,
+                    ).copyWith(color: kSecondaryColor),
+                  ),
                 ),
               ),
             ],

@@ -143,7 +143,7 @@ class Assets {
 
   /// Assets for facebook
   /// assets/icons/Facebook.svg
-  static const String facebook = 'assets/icons/Facebook.svg';
+  static const String facebook = 'assets/icons/Facebook Icon.svg';
 
   /// Assets for favoriteIcon
   /// assets/icons/Favorite Icon.svg
@@ -165,6 +165,8 @@ class Assets {
   /// assets/icons/Forward Icon.svg
   static const String forwardIcon = 'assets/icons/Forward Icon.svg';
 
+  static const String fingerPrintIcon = 'assets/icons/Fingerprint Icon.svg';
+
   /// Assets for globalTextIcon
   /// assets/icons/Global Text icon.svg
   static const String globalTextIcon = 'assets/icons/Global Text icon.svg';
@@ -180,6 +182,7 @@ class Assets {
   /// Assets for googlePlay
   /// assets/icons/Google-play.svg
   static const String googlePlay = 'assets/icons/Google-play.svg';
+  static const String googleicon = 'assets/icons/Google Icon.svg';
 
   /// Assets for group255
   /// assets/icons/Group 255.svg

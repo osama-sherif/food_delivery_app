@@ -12,7 +12,12 @@ class CustomHeader extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         Spacer(),
-        SvgPicture.asset(Assets.backIconArrow),
+        GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: SvgPicture.asset(Assets.backIconArrow),
+        ),
         Spacer(flex: 2),
         Text(
           maxLines: 1,

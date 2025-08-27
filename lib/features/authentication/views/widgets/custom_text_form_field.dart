@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:food_delivery_app/constatns.dart';
 import 'package:food_delivery_app/core/utils/assets.dart';
 
 class CustomTextFormField extends StatelessWidget {
@@ -10,6 +11,7 @@ class CustomTextFormField extends StatelessWidget {
     return SizedBox(
       height: 45,
       child: TextFormField(
+        cursorColor: kSecondaryColor,
         decoration: InputDecoration(
           suffixIconConstraints: BoxConstraints(
             maxWidth: 32.49,
@@ -43,6 +45,8 @@ class _ObscureCustomTextFormFieldState
     return SizedBox(
       height: 45,
       child: TextFormField(
+        cursorColor: kSecondaryColor,
+        obscuringCharacter: '*',
         obscureText: obscureText,
         decoration: InputDecoration(
           suffixIconConstraints: BoxConstraints(
