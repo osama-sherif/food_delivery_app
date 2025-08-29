@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:food_delivery_app/core/widgets/cusotm_back_ground_container.dart';
-import 'package:food_delivery_app/features/authentication/views/widgets/custom_header.dart';
+import 'package:food_delivery_app/features/authentication/presentation/views/widgets/custom_header.dart';
 
-import 'package:food_delivery_app/features/authentication/views/widgets/log_in_form.dart';
+import 'package:food_delivery_app/features/authentication/presentation/views/widgets/log_in_form.dart';
 
 class LogInViewBody extends StatelessWidget {
   const LogInViewBody({super.key});
@@ -18,8 +18,8 @@ class LogInViewBody extends StatelessWidget {
           const CustomHeader(title: 'Log In'),
           const SizedBox(height: 55),
           CustomBackGroundContainer(
-            child: Padding(
-              padding: const EdgeInsets.only(right: 36, left: 36, top: 34),
+            child: const Padding(
+              padding: EdgeInsets.only(right: 36, left: 36, top: 34),
               child: LogInForm(),
             ),
           ),

@@ -5,6 +5,6 @@ class OnBoardingViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [Text('On Boarding View')]);
+    return Scaffold(body: Text('On Boarding View'));
   }
 }

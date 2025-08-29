@@ -4,13 +4,19 @@ import 'package:food_delivery_app/constatns.dart';
 import 'package:food_delivery_app/core/utils/assets.dart';
 
 class CustomTextFormField extends StatelessWidget {
-  const CustomTextFormField({super.key});
-
+  const CustomTextFormField({super.key, this.onChanged});
+  final void Function(String)? onChanged;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 45,
       child: TextFormField(
+        onChanged: onChanged,
+        validator: (value) {
+          if (value!.isEmpty) {
+            return 'This field is required';
+          }
+        },
         cursorColor: kSecondaryColor,
         decoration: InputDecoration(
           suffixIconConstraints: BoxConstraints(
@@ -30,8 +36,8 @@ class CustomTextFormField extends StatelessWidget {
 }
 
 class ObscureCustomTextFormField extends StatefulWidget {
-  const ObscureCustomTextFormField({super.key});
-
+  const ObscureCustomTextFormField({super.key, this.onChanged});
+  final void Function(String)? onChanged;
   @override
   State<ObscureCustomTextFormField> createState() =>
       _ObscureCustomTextFormFieldState();
@@ -45,6 +51,12 @@ class _ObscureCustomTextFormFieldState
     return SizedBox(
       height: 45,
       child: TextFormField(
+        onChanged: widget.onChanged,
+        validator: (value) {
+          if (value!.isEmpty) {
+            return 'This field is required';
+          }
+        },
         cursorColor: kSecondaryColor,
         obscuringCharacter: '*',
         obscureText: obscureText,
