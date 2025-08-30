@@ -200,5 +200,5 @@ double getResponsiveFontSize(BuildContext context, double fontSize) {
 
 double getScaleFactor(BuildContext context) {
   double screenWidth = MediaQuery.of(context).size.width;
-  return screenWidth / 700;
+  return screenWidth / 900;
 }

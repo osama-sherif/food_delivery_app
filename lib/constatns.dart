@@ -5,3 +5,4 @@ const Color kSecondaryColor = Color(0xFFE95322);
 const String kLaunchViewRoute = '/launch';
 const String kOnBoardingViewRoute = '/on-boarding';
 const String kLogInViewRoute = '/log-in';
+const String kSignUpViewRoute = '/sing-up';

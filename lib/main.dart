@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/constatns.dart';
 import 'package:food_delivery_app/features/authentication/presentation/views/log_in_view.dart';
+import 'package:food_delivery_app/features/authentication/presentation/views/sign_up_view.dart';
 import 'package:food_delivery_app/features/launch/presentation/views/launch_view.dart';
 import 'package:food_delivery_app/features/launch/presentation/views/splash_view.dart';
 import 'package:food_delivery_app/features/on_boarding/presentation/views/on_boarding_view.dart';
@@ -28,6 +29,7 @@ class FoodDeliveryApp extends StatelessWidget {
         kLaunchViewRoute: (context) => const LaunchView(),
         kOnBoardingViewRoute: (context) => const OnBoardingView(),
         kLogInViewRoute: (context) => const LogInView(),
+        kSignUpViewRoute: (context) => const SignUpView(),
       },
     );
   }
