@@ -10,11 +10,11 @@ class AuthOptions extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        SvgPicture.asset(Assets.googleicon),
-        SizedBox(width: 9),
-        SvgPicture.asset(Assets.facebook),
-        SizedBox(width: 9),
-        SvgPicture.asset(Assets.fingerPrintIcon),
+        SvgPicture.asset(Assets.googleicon, width: 34),
+        SizedBox(width: 4),
+        SvgPicture.asset(Assets.facebook, width: 34),
+        SizedBox(width: 4),
+        SvgPicture.asset(Assets.fingerPrintIcon, width: 34),
       ],
     );
   }

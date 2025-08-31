@@ -5,6 +5,7 @@ import 'package:food_delivery_app/core/widgets/custom_button.dart';
 import 'package:food_delivery_app/features/authentication/presentation/views/widgets/auth_options.dart';
 import 'package:food_delivery_app/features/authentication/presentation/views/widgets/clickable_text.dart';
 import 'package:food_delivery_app/features/authentication/presentation/views/widgets/custom_text_form_field.dart';
+import 'package:food_delivery_app/features/authentication/presentation/views/widgets/terms_and_policy.dart';
 
 class SignUpForm extends StatelessWidget {
   const SignUpForm({super.key});
@@ -22,41 +23,45 @@ class SignUpForm extends StatelessWidget {
               style: AppStyles.leagueSpartanMedium20(context),
             ),
           ),
-          const SizedBox(height: 6),
+          const SizedBox(height: 2),
           const CustomTextFormField(),
-          const SizedBox(height: 11),
+          const SizedBox(height: 4),
           Text('Password', style: AppStyles.leagueSpartanMedium20(context)),
-          const SizedBox(height: 6),
+          const SizedBox(height: 2),
           const ObscureCustomTextFormField(),
-          const SizedBox(height: 11),
+          const SizedBox(height: 4),
           Text('Email', style: AppStyles.leagueSpartanMedium20(context)),
-          const SizedBox(height: 6),
+          const SizedBox(height: 2),
           const CustomTextFormField(),
-          const SizedBox(height: 11),
+          const SizedBox(height: 4),
           Text('MobileNumber', style: AppStyles.leagueSpartanMedium20(context)),
-          const SizedBox(height: 6),
-          const CustomTextFormField(),
-          const SizedBox(height: 11),
+          const SizedBox(height: 2),
+          CustomTextFormField(),
+          const SizedBox(height: 4),
           Text(
             'Date of birth',
             style: AppStyles.leagueSpartanMedium20(context),
           ),
-          const SizedBox(height: 9),
-          const CustomTextFormField(),
-          const SizedBox(height: 20),
+          const SizedBox(height: 4),
+          CustomTextFormField(),
+          const SizedBox(height: 14),
           const Center(child: TermsAndPolicy()),
+          const SizedBox(height: 6),
           Column(
             children: [
-              SizedBox(
-                width: 207,
-                child: CustomButton(
-                  onPressed: () {},
-                  color: kSecondaryColor,
-                  child: Text(
-                    'Sign Up',
-                    style: AppStyles.leagueSpartanMedium24(
-                      context,
-                    ).copyWith(color: Colors.white),
+              ConstrainedBox(
+                constraints: BoxConstraints(maxWidth: 207, maxHeight: 45),
+                child: AspectRatio(
+                  aspectRatio: 207 / 45,
+                  child: CustomButton(
+                    onPressed: () {},
+                    color: kSecondaryColor,
+                    child: Text(
+                      'Sign Up',
+                      style: AppStyles.leagueSpartanMedium24(
+                        context,
+                      ).copyWith(color: Colors.white),
+                    ),
                   ),
                 ),
               ),
@@ -67,6 +72,7 @@ class SignUpForm extends StatelessWidget {
               ),
               const SizedBox(height: 9),
               const AuthOptions(),
+              const SizedBox(height: 9),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -74,31 +80,17 @@ class SignUpForm extends StatelessWidget {
                     'Already have an account?',
                     style: AppStyles.leagueSpartanLight12(context),
                   ),
-                  const ClickableText(text: ' Log in'),
+                  ClickableText(
+                    onTap: () => Navigator.pushNamed(context, kLogInViewRoute),
+                    text: ' Log in',
+                    style: AppStyles.leagueSpartanMedium12(context),
+                  ),
                 ],
               ),
             ],
           ),
         ],
       ),
-    );
-  }
-}
-
-class TermsAndPolicy extends StatelessWidget {
-  const TermsAndPolicy({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Text(
-          'By continuing, you agree to',
-          style: AppStyles.leagueSpartanLight12(context),
-        ),
-        ClickableText(text: 'Terms of Use and Privacy Policy.'),
-      ],
     );
   }
 }

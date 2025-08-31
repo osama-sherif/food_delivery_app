@@ -13,11 +13,16 @@ class SignUpViewBody extends StatelessWidget {
         children: [
           const SizedBox(height: 44),
           const CustomHeader(title: 'New Account'),
-          const SizedBox(height: 59),
-          const CustomBackGroundContainer(
+          const SizedBox(height: 46),
+          CustomBackGroundContainer(
             child: Padding(
               padding: EdgeInsets.only(right: 36, left: 36, top: 34),
-              child: SignUpForm(),
+              child: Padding(
+                padding: EdgeInsets.only(
+                  bottom: MediaQuery.of(context).viewInsets.bottom,
+                ),
+                child: const SingleChildScrollView(child: SignUpForm()),
+              ),
             ),
           ),
         ],

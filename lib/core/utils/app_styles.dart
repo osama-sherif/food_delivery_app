@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 
 class AppStyles {
   // League Spartan Variants
+  static TextStyle leagueSpartanMedium12(BuildContext context) => TextStyle(
+    fontFamily: 'LeagueSpartan',
+    fontWeight: FontWeight.w500,
+    fontSize: getResponsiveFontSize(context, 12),
+  );
   static TextStyle leagueSpartanMedium14(BuildContext context) => TextStyle(
     fontFamily: 'LeagueSpartan',
     fontWeight: FontWeight.w500,
@@ -200,5 +205,5 @@ double getResponsiveFontSize(BuildContext context, double fontSize) {
 
 double getScaleFactor(BuildContext context) {
   double screenWidth = MediaQuery.of(context).size.width;
-  return screenWidth / 900;
+  return screenWidth / 600;
 }

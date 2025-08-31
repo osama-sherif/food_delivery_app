@@ -15,51 +15,50 @@ class LogInForm extends StatefulWidget {
 
 class _LogInFormState extends State<LogInForm> {
   GlobalKey<FormState> formKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
         bottom: MediaQuery.of(context).viewInsets.bottom,
       ),
-      child: SingleChildScrollView(
-        child: Form(
-          key: formKey,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Welcome',
-                style: AppStyles.leagueSpartanSemiBold24(context),
-              ),
-              const SizedBox(height: 52),
-              Text(
-                'Email or Mobile Number',
-                style: AppStyles.leagueSpartanMedium20(context),
-              ),
-              const SizedBox(height: 10),
-              CustomTextFormField(onChanged: (data) {}),
-              const SizedBox(height: 14),
-              Text('Password', style: AppStyles.leagueSpartanMedium20(context)),
-              const SizedBox(height: 10),
-              ObscureCustomTextFormField(onChanged: (data) {}),
-              const SizedBox(height: 12),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
+      child: Form(
+        key: formKey,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('Welcome', style: AppStyles.leagueSpartanSemiBold24(context)),
+            const SizedBox(height: 32),
+            Text(
+              'Email or Mobile Number',
+              style: AppStyles.leagueSpartanMedium20(context),
+            ),
+            const SizedBox(height: 4),
+            CustomTextFormField(),
+            const SizedBox(height: 12),
+            Text('Password', style: AppStyles.leagueSpartanMedium20(context)),
+            const SizedBox(height: 4),
+            ObscureCustomTextFormField(onChanged: (data) {}),
+            const SizedBox(height: 12),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Text(
+                  'Forget password?',
+                  style: AppStyles.leagueSpartanMedium14(
+                    context,
+                  ).copyWith(color: kSecondaryColor),
+                ),
+              ],
+            ),
+            SizedBox(height: 35),
+            Center(
+              child: Column(
                 children: [
-                  Text(
-                    'Forget password?',
-                    style: AppStyles.leagueSpartanMedium14(
-                      context,
-                    ).copyWith(color: kSecondaryColor),
-                  ),
-                ],
-              ),
-              SizedBox(height: 35),
-              Center(
-                child: Column(
-                  children: [
-                    AspectRatio(
-                      aspectRatio: 207 / 45,
+                  ConstrainedBox(
+                    constraints: BoxConstraints(maxWidth: 196, maxHeight: 45),
+                    child: AspectRatio(
+                      aspectRatio: 196 / 45,
                       child: CustomButton(
                         onPressed: () async {
                           if (formKey.currentState!.validate()) {
@@ -75,32 +74,40 @@ class _LogInFormState extends State<LogInForm> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 29),
-                    Text(
-                      'or log in with',
-                      style: AppStyles.leagueSpartanLight14(
-                        context,
-                      ).copyWith(color: Color(0xFF252525)),
-                    ),
-                    const SizedBox(height: 9),
-                    const AuthOptions(),
-                    const SizedBox(height: 31),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Don\'t have an account?',
-                          style: AppStyles.leagueSpartanLight14(context),
-                        ),
-                        SizedBox(width: 4),
-                        ClickableText(text: 'SignUp'),
-                      ],
-                    ),
-                  ],
-                ),
+                  ),
+                  const SizedBox(height: 24),
+                  Text(
+                    'or log in with',
+                    style: AppStyles.leagueSpartanLight14(
+                      context,
+                    ).copyWith(color: Color(0xFF252525)),
+                  ),
+                  const SizedBox(height: 4),
+                  const AuthOptions(),
+                  const SizedBox(height: 22),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Don\'t have an account?',
+                        style: AppStyles.leagueSpartanLight14(
+                          context,
+                        ).copyWith(color: Color(0xFF391713)),
+                      ),
+                      SizedBox(width: 4),
+                      ClickableText(
+                        style: AppStyles.leagueSpartanLight14(context),
+                        text: 'Sign Up',
+                        onTap: () {
+                          Navigator.pushNamed(context, kSignUpViewRoute);
+                        },
+                      ),
+                    ],
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

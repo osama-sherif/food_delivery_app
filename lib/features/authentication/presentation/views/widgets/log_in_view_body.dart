@@ -18,9 +18,14 @@ class LogInViewBody extends StatelessWidget {
           const CustomHeader(title: 'Log In'),
           const SizedBox(height: 55),
           CustomBackGroundContainer(
-            child: const Padding(
+            child: Padding(
               padding: EdgeInsets.only(right: 36, left: 36, top: 34),
-              child: LogInForm(),
+              child: Padding(
+                padding: EdgeInsets.only(
+                  bottom: MediaQuery.of(context).viewInsets.bottom,
+                ),
+                child: const SingleChildScrollView(child: LogInForm()),
+              ),
             ),
           ),
         ],

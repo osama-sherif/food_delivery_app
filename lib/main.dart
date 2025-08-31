@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/constatns.dart';
 import 'package:food_delivery_app/features/authentication/presentation/views/log_in_view.dart';

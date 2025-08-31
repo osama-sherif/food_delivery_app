@@ -8,28 +8,33 @@ class CustomTextFormField extends StatelessWidget {
   final void Function(String)? onChanged;
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 322 / 45,
-      child: TextFormField(
-        textAlignVertical: TextAlignVertical.center,
-        onChanged: onChanged,
-        validator: (value) {
-          if (value!.isEmpty) {
-            return 'This field is required';
-          }
-        },
-        cursorColor: kSecondaryColor,
-        decoration: InputDecoration(
-          contentPadding: EdgeInsets.only(left: 8),
-          suffixIconConstraints: BoxConstraints(
-            maxWidth: 32.49,
-            maxHeight: 13.74,
-          ),
-          fillColor: Color(0xFFF3E9B5),
-          filled: true,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(13),
-            borderSide: BorderSide.none,
+    return ConstrainedBox(
+      constraints: BoxConstraints(maxWidth: 322, maxHeight: 45),
+      child: AspectRatio(
+        aspectRatio: 322 / 45,
+        child: TextFormField(
+          textAlignVertical: TextAlignVertical.center,
+          onChanged: onChanged,
+          validator: (value) {
+            if (value!.isEmpty) {
+              return 'This field is required';
+            } else {
+              return null;
+            }
+          },
+          cursorColor: kSecondaryColor,
+          decoration: InputDecoration(
+            contentPadding: EdgeInsets.only(left: 8),
+            suffixIconConstraints: BoxConstraints(
+              maxWidth: 32.49,
+              maxHeight: 13.74,
+            ),
+            fillColor: Color(0xFFF3E9B5),
+            filled: true,
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(13),
+              borderSide: BorderSide.none,
+            ),
           ),
         ),
       ),
@@ -50,39 +55,46 @@ class _ObscureCustomTextFormFieldState
   bool obscureText = true;
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 322 / 45,
-      child: TextFormField(
-        textAlignVertical: TextAlignVertical.center,
+    return ConstrainedBox(
+      constraints: BoxConstraints(maxWidth: 322, maxHeight: 45),
+      child: AspectRatio(
+        aspectRatio: 322 / 45,
+        child: Flexible(
+          child: TextFormField(
+            textAlignVertical: TextAlignVertical.center,
 
-        onChanged: widget.onChanged,
-        validator: (value) {
-          if (value!.isEmpty) {
-            return 'This field is required';
-          }
-        },
-        cursorColor: kSecondaryColor,
-        obscuringCharacter: '*',
-        obscureText: obscureText,
-        decoration: InputDecoration(
-          contentPadding: EdgeInsets.only(left: 8),
-          suffixIconConstraints: BoxConstraints(
-            maxWidth: 32.49,
-            maxHeight: 13.74,
-          ),
-          suffixIcon: Padding(
-            padding: const EdgeInsets.only(right: 16.0),
-            child: obscureIcon(obscureText),
-          ),
-          fillColor: Color(0xFFF3E9B5),
-          filled: true,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(13),
-            borderSide: BorderSide.none,
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(13),
-            borderSide: BorderSide.none,
+            onChanged: widget.onChanged,
+            validator: (value) {
+              if (value!.isEmpty) {
+                return 'This field is required';
+              } else {
+                return null;
+              }
+            },
+            cursorColor: kSecondaryColor,
+            obscuringCharacter: '*',
+            obscureText: obscureText,
+            decoration: InputDecoration(
+              contentPadding: EdgeInsets.only(left: 8),
+              suffixIconConstraints: BoxConstraints(
+                maxWidth: 32.49,
+                maxHeight: 13.74,
+              ),
+              suffixIcon: Padding(
+                padding: const EdgeInsets.only(right: 16.0),
+                child: obscureIcon(obscureText),
+              ),
+              fillColor: Color(0xFFF3E9B5),
+              filled: true,
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(13),
+                borderSide: BorderSide.none,
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(13),
+                borderSide: BorderSide.none,
+              ),
+            ),
           ),
         ),
       ),
