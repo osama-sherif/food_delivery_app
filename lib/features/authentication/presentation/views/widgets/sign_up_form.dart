@@ -7,9 +7,14 @@ import 'package:food_delivery_app/features/authentication/presentation/views/wid
 import 'package:food_delivery_app/features/authentication/presentation/views/widgets/custom_text_form_field.dart';
 import 'package:food_delivery_app/features/authentication/presentation/views/widgets/terms_and_policy.dart';
 
-class SignUpForm extends StatelessWidget {
+class SignUpForm extends StatefulWidget {
   const SignUpForm({super.key});
 
+  @override
+  State<SignUpForm> createState() => _SignUpFormState();
+}
+
+class _SignUpFormState extends State<SignUpForm> {
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -28,11 +33,11 @@ class SignUpForm extends StatelessWidget {
           const SizedBox(height: 4),
           Text('Password', style: AppStyles.leagueSpartanMedium20(context)),
           const SizedBox(height: 2),
-          const ObscureCustomTextFormField(),
+          ObscureCustomTextFormField(onChanged: (data) {}),
           const SizedBox(height: 4),
           Text('Email', style: AppStyles.leagueSpartanMedium20(context)),
           const SizedBox(height: 2),
-          const CustomTextFormField(),
+          CustomTextFormField(onChanged: (data) {}),
           const SizedBox(height: 4),
           Text('MobileNumber', style: AppStyles.leagueSpartanMedium20(context)),
           const SizedBox(height: 2),
