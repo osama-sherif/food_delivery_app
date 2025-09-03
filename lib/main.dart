@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_delivery_app/constatns.dart';
+import 'package:food_delivery_app/core/utils/fire_base_service.dart';
+import 'package:food_delivery_app/features/authentication/data/repos/auth_repo_impl.dart';
+import 'package:food_delivery_app/features/authentication/presentation/manager/auth_cubit/auth_cubit.dart';
 import 'package:food_delivery_app/features/authentication/presentation/views/log_in_view.dart';
 import 'package:food_delivery_app/features/authentication/presentation/views/sign_up_view.dart';
 import 'package:food_delivery_app/features/launch/presentation/views/launch_view.dart';
@@ -21,15 +25,18 @@ class FoodDeliveryApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: SplashView(),
-      routes: {
-        kLaunchViewRoute: (context) => const LaunchView(),
-        kOnBoardingViewRoute: (context) => const OnBoardingView(),
-        kLogInViewRoute: (context) => const LogInView(),
-        kSignUpViewRoute: (context) => const SignUpView(),
-      },
+    return BlocProvider(
+      create: (context) => AuthCubit(AuthRepoImpl(FireBaseService())),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: SplashView(),
+        routes: {
+          kLaunchViewRoute: (context) => const LaunchView(),
+          kOnBoardingViewRoute: (context) => const OnBoardingView(),
+          kLogInViewRoute: (context) => const LogInView(),
+          kSignUpViewRoute: (context) => const SignUpView(),
+        },
+      ),
     );
   }
 }

@@ -15,7 +15,7 @@ class LogInForm extends StatefulWidget {
 
 class _LogInFormState extends State<LogInForm> {
   GlobalKey<FormState> formKey = GlobalKey();
-
+  String? email, password;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -34,11 +34,19 @@ class _LogInFormState extends State<LogInForm> {
               style: AppStyles.leagueSpartanMedium20(context),
             ),
             const SizedBox(height: 4),
-            CustomTextFormField(),
+            CustomTextFormField(
+              onChanged: (data) {
+                email = data;
+              },
+            ),
             const SizedBox(height: 12),
             Text('Password', style: AppStyles.leagueSpartanMedium20(context)),
             const SizedBox(height: 4),
-            ObscureCustomTextFormField(onChanged: (data) {}),
+            ObscureCustomTextFormField(
+              onChanged: (data) {
+                password = data;
+              },
+            ),
             const SizedBox(height: 12),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
