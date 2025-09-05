@@ -6,3 +6,4 @@ const String kLaunchViewRoute = '/launch';
 const String kOnBoardingViewRoute = '/on-boarding';
 const String kLogInViewRoute = '/log-in';
 const String kSignUpViewRoute = '/sing-up';
+const String kSetPasswordViewRoute = '/set-password';

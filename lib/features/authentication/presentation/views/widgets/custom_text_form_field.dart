@@ -106,7 +106,7 @@ class _ObscureCustomTextFormFieldState
           obscureText = !obsureText;
         });
       },
-      child: SvgPicture.asset(obsureText ? Assets.showOn : Assets.showOff),
+      child: SvgPicture.asset(obsureText ? Assets.showOff : Assets.showOn),
     );
   }
 }

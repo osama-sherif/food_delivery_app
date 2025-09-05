@@ -6,6 +6,7 @@ import 'package:food_delivery_app/features/authentication/data/model/user_model.
 import 'package:food_delivery_app/features/authentication/data/repos/auth_repo_impl.dart';
 import 'package:food_delivery_app/features/authentication/presentation/manager/auth_cubit/auth_cubit.dart';
 import 'package:food_delivery_app/features/authentication/presentation/views/log_in_view.dart';
+import 'package:food_delivery_app/features/authentication/presentation/views/set_password_view.dart';
 import 'package:food_delivery_app/features/authentication/presentation/views/sign_up_view.dart';
 import 'package:food_delivery_app/features/launch/presentation/views/launch_view.dart';
 import 'package:food_delivery_app/features/launch/presentation/views/splash_view.dart';
@@ -37,6 +38,7 @@ class FoodDeliveryApp extends StatelessWidget {
           kOnBoardingViewRoute: (context) => const OnBoardingView(),
           kLogInViewRoute: (context) => const LogInView(),
           kSignUpViewRoute: (context) => const SignUpView(),
+          kSetPasswordViewRoute: (context) => const SetPasswordView(),
         },
       ),
     );

@@ -1,10 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/core/widgets/cusotm_back_ground_container.dart';
+import 'package:food_delivery_app/features/authentication/presentation/views/widgets/custom_header.dart';
+import 'package:food_delivery_app/features/authentication/presentation/views/widgets/set_password_form.dart';
 
 class SetPasswordViewBody extends StatelessWidget {
   const SetPasswordViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return SafeArea(
+      child: Column(
+        children: [
+          const SizedBox(height: 44),
+          const CustomHeader(title: 'Set Password'),
+          const SizedBox(height: 46),
+          CustomBackGroundContainer(
+            child: Padding(
+              padding: EdgeInsets.only(right: 36, left: 36, top: 34),
+              child: Padding(
+                padding: EdgeInsets.only(
+                  bottom: MediaQuery.of(context).viewInsets.bottom,
+                ),
+                child: const SingleChildScrollView(child: SetPasswordForm()),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
