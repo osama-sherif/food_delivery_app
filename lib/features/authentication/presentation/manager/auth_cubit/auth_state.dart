@@ -5,9 +5,17 @@ sealed class AuthState {}
 
 final class AuthInitial extends AuthState {}
 
-final class AuthLogInSuccess extends AuthState {}
+final class AuthLogInSuccess extends AuthState {
+  final String errMessage;
 
-final class AuthLogInFailed extends AuthState {}
+  AuthLogInSuccess(this.errMessage);
+}
+
+final class AuthLogInFailed extends AuthState {
+  final String errMessage;
+
+  AuthLogInFailed(this.errMessage);
+}
 
 final class AuthLogInLoading extends AuthState {}
 
@@ -26,4 +34,8 @@ final class AuthSignUpLoading extends AuthState {}
 
 final class AuthLogOut extends AuthState {}
 
-final class AuthLoggedIn extends AuthState {}
+final class AuthLoggedIn extends AuthState {
+  final String id;
+
+  AuthLoggedIn(this.id);
+}

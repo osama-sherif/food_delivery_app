@@ -43,7 +43,12 @@ class AuthRepoImpl implements AuthRepo {
   }
 
   @override
-  User? getCurrentUser() {
+  Future<User?> getCurrentUser() async {
     return _fireBaseService.currentUser;
+  }
+
+  @override
+  bool isUserLoggedIn() {
+    return _fireBaseService.currentUser != null;
   }
 }

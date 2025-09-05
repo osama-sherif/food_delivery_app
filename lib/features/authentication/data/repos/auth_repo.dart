@@ -6,5 +6,6 @@ abstract class AuthRepo {
   Future<void> logInUserWithEmailAndPassword({required UserModel user});
 
   Future<void> signOut();
-  User? getCurrentUser();
+  Future<User?> getCurrentUser();
+  bool isUserLoggedIn();
 }

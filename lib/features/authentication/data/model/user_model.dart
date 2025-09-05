@@ -1,10 +1,10 @@
 class UserModel {
-  final String email, password, name, phoneNumber, dateOfBirth;
-
-  const UserModel(
+  final String? name, phoneNumber, dateOfBirth;
+  final String email, password;
+  const UserModel({
     this.name,
     this.phoneNumber,
-    this.dateOfBirth, {
+    this.dateOfBirth,
     required this.email,
     required this.password,
   });

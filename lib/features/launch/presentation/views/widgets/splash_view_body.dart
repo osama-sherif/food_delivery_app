@@ -13,8 +13,8 @@ class SplashViewBody extends StatefulWidget {
 class _SplashViewBodyState extends State<SplashViewBody> {
   @override
   void initState() {
-    navigationToLaunchView(context);
     super.initState();
+    navigationToLaunchView(context);
   }
 
   @override
@@ -29,6 +29,6 @@ class _SplashViewBodyState extends State<SplashViewBody> {
 
 void navigationToLaunchView(BuildContext context) {
   Future.delayed(const Duration(seconds: 2), () {
-    Navigator.pushNamed(context, kLaunchViewRoute);
+    Navigator.pushReplacementNamed(context, kLaunchViewRoute);
   });
 }
