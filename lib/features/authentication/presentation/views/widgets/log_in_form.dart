@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_delivery_app/constatns.dart';
 import 'package:food_delivery_app/core/utils/app_styles.dart';
 import 'package:food_delivery_app/core/widgets/custom_button.dart';
-import 'package:food_delivery_app/features/authentication/presentation/manager/auth_cubit/auth_cubit.dart';
+
 import 'package:food_delivery_app/features/authentication/presentation/views/widgets/auth_options.dart';
 import 'package:food_delivery_app/features/authentication/presentation/views/widgets/clickable_text.dart';
 import 'package:food_delivery_app/features/authentication/presentation/views/widgets/custom_text_form_field.dart';

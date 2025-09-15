@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_delivery_app/constatns.dart';
-import 'package:food_delivery_app/features/authentication/presentation/manager/auth_cubit/auth_cubit.dart';
+
 import 'package:food_delivery_app/features/authentication/presentation/views/widgets/log_in_view_body.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 

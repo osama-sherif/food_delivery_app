@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_delivery_app/constatns.dart';
 import 'package:food_delivery_app/core/utils/fire_base_service.dart';
 import 'package:food_delivery_app/features/authentication/data/repos/auth_repo_impl.dart';
-import 'package:food_delivery_app/features/authentication/presentation/manager/auth_cubit/auth_cubit.dart';
+
 import 'package:food_delivery_app/features/authentication/presentation/views/log_in_view.dart';
 import 'package:food_delivery_app/features/authentication/presentation/views/set_password_view.dart';
 import 'package:food_delivery_app/features/authentication/presentation/views/sign_up_view.dart';
