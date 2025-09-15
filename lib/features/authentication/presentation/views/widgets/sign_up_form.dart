@@ -22,116 +22,96 @@ class _SignUpFormState extends State<SignUpForm> {
   final formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<AuthCubit, AuthState>(
-      listener: (context, state) {
-        if (state is AuthSignUpSuccess) {
-          Navigator.pushReplacementNamed(context, kOnBoardingViewRoute);
-        }
-      },
-      builder: (context, state) {
-        return Form(
-          key: formKey,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+    return Form(
+      key: formKey,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(
+              'Full name',
+              style: AppStyles.leagueSpartanMedium20(context),
+            ),
+          ),
+          const SizedBox(height: 2),
+          const CustomTextFormField(),
+          const SizedBox(height: 4),
+          Text('Password', style: AppStyles.leagueSpartanMedium20(context)),
+          const SizedBox(height: 2),
+          ObscureCustomTextFormField(
+            onChanged: (data) {
+              password = data;
+            },
+          ),
+          const SizedBox(height: 4),
+          Text('Email', style: AppStyles.leagueSpartanMedium20(context)),
+          const SizedBox(height: 2),
+          CustomTextFormField(
+            onChanged: (data) {
+              email = data;
+            },
+          ),
+          const SizedBox(height: 4),
+          Text('MobileNumber', style: AppStyles.leagueSpartanMedium20(context)),
+          const SizedBox(height: 2),
+          CustomTextFormField(),
+          const SizedBox(height: 4),
+          Text(
+            'Date of birth',
+            style: AppStyles.leagueSpartanMedium20(context),
+          ),
+          const SizedBox(height: 4),
+          CustomTextFormField(),
+          const SizedBox(height: 14),
+          const Center(child: TermsAndPolicy()),
+          const SizedBox(height: 6),
+          Column(
             children: [
-              FittedBox(
-                fit: BoxFit.scaleDown,
-                child: Text(
-                  'Full name',
-                  style: AppStyles.leagueSpartanMedium20(context),
-                ),
-              ),
-              const SizedBox(height: 2),
-              const CustomTextFormField(),
-              const SizedBox(height: 4),
-              Text('Password', style: AppStyles.leagueSpartanMedium20(context)),
-              const SizedBox(height: 2),
-              ObscureCustomTextFormField(
-                onChanged: (data) {
-                  password = data;
-                },
-              ),
-              const SizedBox(height: 4),
-              Text('Email', style: AppStyles.leagueSpartanMedium20(context)),
-              const SizedBox(height: 2),
-              CustomTextFormField(
-                onChanged: (data) {
-                  email = data;
-                },
-              ),
-              const SizedBox(height: 4),
-              Text(
-                'MobileNumber',
-                style: AppStyles.leagueSpartanMedium20(context),
-              ),
-              const SizedBox(height: 2),
-              CustomTextFormField(),
-              const SizedBox(height: 4),
-              Text(
-                'Date of birth',
-                style: AppStyles.leagueSpartanMedium20(context),
-              ),
-              const SizedBox(height: 4),
-              CustomTextFormField(),
-              const SizedBox(height: 14),
-              const Center(child: TermsAndPolicy()),
-              const SizedBox(height: 6),
-              Column(
-                children: [
-                  ConstrainedBox(
-                    constraints: BoxConstraints(maxWidth: 207, maxHeight: 45),
-                    child: AspectRatio(
-                      aspectRatio: 207 / 45,
-                      child: CustomButton(
-                        onPressed: () {
-                          formKey.currentState!.validate();
-                          BlocProvider.of<AuthCubit>(context).signUp(
-                            'name',
-                            'phoneNumber',
-                            'dateOfBirth',
-                            email: email!,
-                            password: password!,
-                          );
-                        },
-                        color: kSecondaryColor,
-                        child: Text(
-                          'Sign Up',
-                          style: AppStyles.leagueSpartanMedium24(
-                            context,
-                          ).copyWith(color: Colors.white),
-                        ),
-                      ),
+              ConstrainedBox(
+                constraints: BoxConstraints(maxWidth: 207, maxHeight: 45),
+                child: AspectRatio(
+                  aspectRatio: 207 / 45,
+                  child: CustomButton(
+                    onPressed: () {
+                      formKey.currentState!.validate();
+                    },
+                    color: kSecondaryColor,
+                    child: Text(
+                      'Sign Up',
+                      style: AppStyles.leagueSpartanMedium24(
+                        context,
+                      ).copyWith(color: Colors.white),
                     ),
                   ),
-                  const SizedBox(height: 9),
+                ),
+              ),
+              const SizedBox(height: 9),
+              Text(
+                'or sign up with',
+                style: AppStyles.leagueSpartanLight12(context),
+              ),
+              const SizedBox(height: 9),
+              const AuthOptions(),
+              const SizedBox(height: 9),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
                   Text(
-                    'or sign up with',
+                    'Already have an account?',
                     style: AppStyles.leagueSpartanLight12(context),
                   ),
-                  const SizedBox(height: 9),
-                  const AuthOptions(),
-                  const SizedBox(height: 9),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Already have an account?',
-                        style: AppStyles.leagueSpartanLight12(context),
-                      ),
-                      ClickableText(
-                        onTap: () =>
-                            Navigator.pushNamed(context, kLogInViewRoute),
-                        text: ' Log in',
-                        style: AppStyles.leagueSpartanMedium12(context),
-                      ),
-                    ],
+                  ClickableText(
+                    onTap: () => Navigator.pushNamed(context, kLogInViewRoute),
+                    text: ' Log in',
+                    style: AppStyles.leagueSpartanMedium12(context),
                   ),
                 ],
               ),
             ],
           ),
-        );
-      },
+        ],
+      ),
     );
   }
 }

@@ -11,23 +11,12 @@ class LogInView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     bool isLoading = false;
-    return BlocConsumer<AuthCubit, AuthState>(
-      listener: (context, state) {
-        if (state is AuthSignUpSuccess) {
-          isLoading = true;
-        } else {
-          isLoading = false;
-        }
-      },
-      builder: (context, state) {
-        return ModalProgressHUD(
-          inAsyncCall: isLoading,
-          child: const Scaffold(
-            backgroundColor: kPrimaryColor,
-            body: LogInViewBody(),
-          ),
-        );
-      },
+    return ModalProgressHUD(
+      inAsyncCall: isLoading,
+      child: const Scaffold(
+        backgroundColor: kPrimaryColor,
+        body: LogInViewBody(),
+      ),
     );
   }
 }

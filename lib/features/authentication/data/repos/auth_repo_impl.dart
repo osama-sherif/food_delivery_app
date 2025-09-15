@@ -1,54 +1,63 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:food_delivery_app/core/utils/fire_base_service.dart';
 import 'package:food_delivery_app/features/authentication/data/model/user_model.dart';
 import 'package:food_delivery_app/features/authentication/data/repos/auth_repo.dart';
 
 class AuthRepoImpl implements AuthRepo {
-  final FireBaseService _fireBaseService;
+  final FireBaseService _fireBaseService = FireBaseService();
 
-  AuthRepoImpl(this._fireBaseService);
   @override
-  Future<void> logInUserWithEmailAndPassword({required UserModel user}) async {
+  Future<UserModel?> logIn(String email, String password) async {
     try {
-      await _fireBaseService.logInUser(userModel: user);
-    } on FirebaseAuthException catch (e) {
-      String errMessage = 'Un known error';
-      if (e.code == 'user-not-found') {
-        errMessage = 'No user found for that email.';
-      } else if (e.code == 'wrong-password') {
-        errMessage = 'Wrong password provided for that user.';
-      }
-      throw Exception(errMessage);
+      await _fireBaseService.logInUser(email: email, password: password);
+      UserModel user = UserModel(
+        uid: _fireBaseService.currentUser?.uid ?? '',
+        email: _fireBaseService.currentUser?.email ?? '',
+      );
+      return user;
+    } catch (e) {
+      throw Exception('Failed to log in: $e');
     }
   }
 
   @override
-  Future<void> signUpUserWithEmailAndPassword({required UserModel user}) async {
+  Future<UserModel?> signUp(
+    String email,
+    String password,
+    String name,
+    String dateOfBith,
+    String phoneNumber,
+  ) async {
     try {
-      await _fireBaseService.signUpUser(userModel: user);
-    } on FirebaseAuthException catch (e) {
-      String errMessage = 'Un known error';
-      if (e.code == 'weak-password') {
-        errMessage = 'The password provided is too weak.';
-      } else if (e.code == 'email-already-in-use') {
-        errMessage = 'The account already exists for that email.';
-      }
-      throw Exception(errMessage);
+      // logIn user
+      await _fireBaseService.signUpUser(email: email, password: password);
+
+      // create user
+      UserModel user = UserModel(
+        uid: _fireBaseService.currentUser?.uid ?? '',
+        email: _fireBaseService.currentUser?.email ?? '',
+        name: name,
+        dateOfBirth: dateOfBith,
+        phoneNumber: phoneNumber,
+      );
+      return user;
+    } catch (e) {
+      throw Exception('Failed to sign up: $e');
     }
   }
 
   @override
-  Future<void> signOut() async {
+  Future<UserModel?> getCurrentUser() async {
+    final fireBaseUser = _fireBaseService.currentUser;
+
+    if (fireBaseUser != null) {
+      return UserModel(email: fireBaseUser.email!, uid: fireBaseUser.uid);
+    } else {
+      return null;
+    }
+  }
+
+  @override
+  Future<void> logOut() async {
     await _fireBaseService.signOut();
-  }
-
-  @override
-  Future<User?> getCurrentUser() async {
-    return _fireBaseService.currentUser;
-  }
-
-  @override
-  bool isUserLoggedIn() {
-    return _fireBaseService.currentUser != null;
   }
 }
