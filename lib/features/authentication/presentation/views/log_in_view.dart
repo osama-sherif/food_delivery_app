@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_delivery_app/constatns.dart';
+import 'package:food_delivery_app/features/authentication/presentation/manager/cubit/auth_cubit.dart';
 
 import 'package:food_delivery_app/features/authentication/presentation/views/widgets/log_in_view_body.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
@@ -11,11 +12,16 @@ class LogInView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     bool isLoading = false;
-    return ModalProgressHUD(
-      inAsyncCall: isLoading,
-      child: const Scaffold(
-        backgroundColor: kPrimaryColor,
-        body: LogInViewBody(),
+    return BlocListener<AuthCubit, AuthState>(
+      listener: (context, state) {
+        if (state is AuthLoading) isLoading = true;
+      },
+      child: ModalProgressHUD(
+        inAsyncCall: isLoading,
+        child: const Scaffold(
+          backgroundColor: kPrimaryColor,
+          body: LogInViewBody(),
+        ),
       ),
     );
   }

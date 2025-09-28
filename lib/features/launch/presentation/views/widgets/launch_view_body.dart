@@ -43,7 +43,7 @@ class _LaunchViewBodyState extends State<LaunchViewBody> {
                 child: CustomButton(
                   color: kPrimaryColor,
                   onPressed: () {
-                    Navigator.pushNamed(context, kLogInViewRoute);
+                    Navigator.pushReplacementNamed(context, kLogInViewRoute);
                   },
                   child: Text(
                     'Log In',
@@ -59,7 +59,7 @@ class _LaunchViewBodyState extends State<LaunchViewBody> {
                 child: CustomButton(
                   color: Color(0xFFF3E9B5),
                   onPressed: () {
-                    Navigator.pushNamed(context, kSignUpViewRoute);
+                    Navigator.pushReplacementNamed(context, kSignUpViewRoute);
                   },
                   child: Text(
                     'Sign Up',

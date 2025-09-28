@@ -4,8 +4,9 @@ import 'package:food_delivery_app/constatns.dart';
 import 'package:food_delivery_app/core/utils/assets.dart';
 
 class CustomTextFormField extends StatelessWidget {
-  const CustomTextFormField({super.key, this.onChanged});
+  const CustomTextFormField({super.key, this.onChanged, this.controller});
   final void Function(String)? onChanged;
+  final TextEditingController? controller;
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
@@ -13,6 +14,7 @@ class CustomTextFormField extends StatelessWidget {
       child: AspectRatio(
         aspectRatio: 322 / 45,
         child: TextFormField(
+          controller: controller,
           textAlignVertical: TextAlignVertical.center,
           onChanged: onChanged,
           validator: (value) {
@@ -43,8 +45,13 @@ class CustomTextFormField extends StatelessWidget {
 }
 
 class ObscureCustomTextFormField extends StatefulWidget {
-  const ObscureCustomTextFormField({super.key, this.onChanged});
+  const ObscureCustomTextFormField({
+    super.key,
+    this.onChanged,
+    this.controller,
+  });
   final void Function(String)? onChanged;
+  final TextEditingController? controller;
   @override
   State<ObscureCustomTextFormField> createState() =>
       _ObscureCustomTextFormFieldState();
@@ -53,6 +60,7 @@ class ObscureCustomTextFormField extends StatefulWidget {
 class _ObscureCustomTextFormFieldState
     extends State<ObscureCustomTextFormField> {
   bool obscureText = true;
+
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
@@ -60,6 +68,7 @@ class _ObscureCustomTextFormFieldState
       child: AspectRatio(
         aspectRatio: 322 / 45,
         child: TextFormField(
+          controller: widget.controller,
           textAlignVertical: TextAlignVertical.center,
 
           onChanged: widget.onChanged,

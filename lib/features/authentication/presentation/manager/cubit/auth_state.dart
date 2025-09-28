@@ -6,15 +6,19 @@ sealed class AuthState {}
 final class AuthInitial extends AuthState {}
 
 final class AuthError extends AuthState {
-  String? message;
+  final String? message;
   AuthError(this.message);
 }
 
 final class AuthLoading extends AuthState {}
 
 final class Authenticated extends AuthState {
-  UserModel userModel;
+  final UserModel userModel;
   Authenticated(this.userModel);
 }
 
 final class UnAuthenticated extends AuthState {}
+
+final class LoggedOut extends AuthState {}
+
+final class EmailSent extends AuthState {}

@@ -20,13 +20,13 @@ class AuthRepoImpl implements AuthRepo {
   }
 
   @override
-  Future<UserModel?> signUp(
-    String email,
-    String password,
-    String name,
-    String dateOfBith,
-    String phoneNumber,
-  ) async {
+  Future<UserModel?> signUp({
+    required String email,
+    required String password,
+    required String name,
+    required String dateOfBith,
+    required String mobileNumber,
+  }) async {
     try {
       // logIn user
       await _fireBaseService.signUpUser(email: email, password: password);
@@ -37,7 +37,7 @@ class AuthRepoImpl implements AuthRepo {
         email: _fireBaseService.currentUser?.email ?? '',
         name: name,
         dateOfBirth: dateOfBith,
-        phoneNumber: phoneNumber,
+        phoneNumber: mobileNumber,
       );
       return user;
     } catch (e) {
@@ -59,5 +59,11 @@ class AuthRepoImpl implements AuthRepo {
   @override
   Future<void> logOut() async {
     await _fireBaseService.signOut();
+  }
+
+  @override
+  Future<void> sendPasswordResetEmail({required String email}) async {
+    await _fireBaseService.sendPasswordResetEmail(email: email);
+    throw UnimplementedError();
   }
 }

@@ -301,6 +301,10 @@ class Assets {
   /// assets/icons/Next Icon.svg
   static const String nextIcon = 'assets/icons/Next Icon.svg';
 
+  /// Assets for nextIconArrow
+  /// assets/icons/Next Icon Arrow.svg
+  static const String nextIconArrow = 'assets/icons/Next icon Arrow.svg';
+
   /// Assets for notificationIcon
   /// assets/icons/Notification Icon.svg
   static const String notificationIcon = 'assets/icons/Notification Icon.svg';
@@ -495,4 +499,7 @@ class Assets {
   /// Assets for zoomOutIcon
   /// assets/icons/Zoom Out Icon.svg
   static const String zoomOutIcon = 'assets/icons/Zoom Out Icon.svg';
+  static const String pizzaImage = 'assets/images/pizza.png';
+  static const String iceCreanImage = 'assets/images/icecream.svg';
+  static const String coffeeImage = 'assets/images/coffee.svg';
 }

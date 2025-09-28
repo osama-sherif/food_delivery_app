@@ -8,7 +8,7 @@ part 'auth_state.dart';
 class AuthCubit extends Cubit<AuthState> {
   final AuthRepo _authRepo;
   UserModel? _currentUser;
-  AuthCubit(this._authRepo, this._currentUser) : super(AuthInitial());
+  AuthCubit(this._authRepo) : super(AuthInitial());
 
   UserModel? get currentUser => _currentUser;
 
@@ -39,21 +39,21 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
-  Future<void> signUp(
-    String name,
-    String email,
-    String password,
-    String phoneNumber,
-    String dateOfBirth,
-  ) async {
+  Future<void> signUp({
+    required String name,
+    required String email,
+    required String password,
+    required String mobileNumber,
+    required String dateOfBirth,
+  }) async {
     try {
       emit(AuthLoading());
       final user = await _authRepo.signUp(
-        email,
-        password,
-        name,
-        dateOfBirth,
-        phoneNumber,
+        email: email,
+        password: password,
+        name: name,
+        dateOfBith: dateOfBirth,
+        mobileNumber: mobileNumber,
       );
       if (user != null) {
         _currentUser = user;
@@ -70,6 +70,17 @@ class AuthCubit extends Cubit<AuthState> {
   Future<void> logOut() async {
     emit(AuthLoading());
     await _authRepo.logOut();
-    emit(UnAuthenticated());
+    emit(LoggedOut());
+  }
+
+  Future<void> sendPasswordResetEmail(String email) async {
+    try {
+      emit(AuthLoading());
+      await _authRepo.sendPasswordResetEmail(email: email);
+      emit(EmailSent());
+    } catch (e) {
+      emit(AuthError('Failed to send email: ${e.toString()}'));
+      emit(UnAuthenticated());
+    }
   }
 }
