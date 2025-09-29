@@ -23,11 +23,11 @@ class _SplashViewBodyState extends State<SplashViewBody> {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is UnAuthenticated) {
-          navigationToLaunchView(context);
-        } else if (state is Authenticated) {
           Future.delayed(const Duration(seconds: 2), () {
             Navigator.pushReplacementNamed(context, kOnBoardingViewRoute);
           });
+        } else if (state is Authenticated) {
+          navigationToHomeView(context);
         }
       },
       builder: (context, state) {
@@ -41,8 +41,8 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   }
 }
 
-void navigationToLaunchView(BuildContext context) {
+void navigationToHomeView(BuildContext context) {
   Future.delayed(const Duration(seconds: 2), () {
-    Navigator.pushReplacementNamed(context, kLaunchViewRoute);
+    Navigator.pushReplacementNamed(context, kHomeViewRoute);
   });
 }

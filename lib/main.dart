@@ -9,6 +9,7 @@ import 'package:food_delivery_app/features/authentication/presentation/manager/c
 import 'package:food_delivery_app/features/authentication/presentation/views/log_in_view.dart';
 import 'package:food_delivery_app/features/authentication/presentation/views/set_password_view.dart';
 import 'package:food_delivery_app/features/authentication/presentation/views/sign_up_view.dart';
+import 'package:food_delivery_app/features/home/presentation/views/home_view.dart';
 import 'package:food_delivery_app/features/launch/presentation/views/launch_view.dart';
 import 'package:food_delivery_app/features/launch/presentation/views/splash_view.dart';
 import 'package:food_delivery_app/features/on_boarding/presentation/views/on_boarding_view.dart';
@@ -38,6 +39,7 @@ class FoodDeliveryApp extends StatelessWidget {
           kLogInViewRoute: (context) => const LogInView(),
           kSignUpViewRoute: (context) => const SignUpView(),
           kSetPasswordViewRoute: (context) => const SetPasswordView(),
+          kHomeViewRoute: (context) => const HomeView(),
         },
       ),
     );

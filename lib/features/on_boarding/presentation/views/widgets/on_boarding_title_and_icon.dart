@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:food_delivery_app/constatns.dart';
 import 'package:food_delivery_app/core/utils/app_styles.dart';
-import 'package:food_delivery_app/core/utils/assets.dart';
 
 class OnBoardingTitleAndIcon extends StatelessWidget {
   final String title, iconPath;

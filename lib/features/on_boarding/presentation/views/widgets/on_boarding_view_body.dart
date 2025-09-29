@@ -78,21 +78,31 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
                       aspectRatio: 133 / 36,
                       child: CustomButton(
                         color: kSecondaryColor,
+                        onPressed: pageIndex == 2
+                            ? () {
+                                Navigator.pushReplacementNamed(
+                                  context,
+                                  kLaunchViewRoute,
+                                );
+                              }
+                            : () {
+                                setState(() {
+                                  animateToPageView(
+                                    pageIndex + 1,
+                                    _iconAndTitleController,
+                                  );
+                                  animateToPageView(
+                                    pageIndex + 1,
+                                    _imageController,
+                                  );
+                                });
+                              },
                         child: Text(
                           pageIndex == 2 ? 'Get Started' : 'Next',
                           style: AppStyles.leagueSpartanMedium17(
                             context,
                           ).copyWith(color: Colors.white),
                         ),
-                        onPressed: () {
-                          setState(() {
-                            animateToPageView(
-                              pageIndex + 1,
-                              _iconAndTitleController,
-                            );
-                            animateToPageView(pageIndex + 1, _imageController);
-                          });
-                        },
                       ),
                     ),
                   ),
