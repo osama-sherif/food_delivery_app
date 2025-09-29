@@ -500,6 +500,6 @@ class Assets {
   /// assets/icons/Zoom Out Icon.svg
   static const String zoomOutIcon = 'assets/icons/Zoom Out Icon.svg';
   static const String pizzaImage = 'assets/images/pizza.png';
-  static const String iceCreanImage = 'assets/images/icecream.svg';
-  static const String coffeeImage = 'assets/images/coffee.svg';
+  static const String iceCreamImage = 'assets/images/iceCream.png';
+  static const String coffeeImage = 'assets/images/coffee.png';
 }
